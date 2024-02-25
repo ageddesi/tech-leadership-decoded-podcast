@@ -26,7 +26,7 @@ function formatTime(secs) {
   return hours > 0 ? `${hours}:${formattedMinutes}:${formattedseconds}` : `${minutes}:${formattedseconds}`;
 }
 
-const displayDuration = duration ? formatTime(duration) : 0;
+const displayDuration = duration ? formatTime(duration) : null;
 ---
 
 <div class="episode-card">
