@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+
+import HeaderCard from "../components/headerCard/HeaderCard.astro";
+const pageTitle = "My Astro Learning Blog";
+const allPosts = await getCollection("posts");
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <HeaderCard hideSmallCover={false} title={"Blogs"} subtitle={"Articles by our host"} cover={""} explicit={false} />
+
+    <div class="card min-w-full bg-base-100 shadow-md p-3 pb-3 mt-12">
+    { allPosts.map((post) => 
+    <HorizontalCard
+        title={post.data.title}
+        cover={post.data.smlImage}
+        desc={post.data.description}
+        url={"/posts/" + post.slug}
+        pubDate={post.data.pubDate}
+        id={"card-" + post}
+    />)}
+    </div>
+</BaseLayout>
