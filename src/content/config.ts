@@ -14,10 +14,24 @@ const episodeSchema = z.object({
     description: z.string().optional(),
 });
 
+const postsCollection = defineCollection({
+    type: 'content',
+    schema: z.object({
+      title: z.string(),
+      pubDate: z.date(),
+      description: z.string(),
+      author: z.string(),
+      tags: z.array(z.string()),
+      cover: z.string().optional(),
+      smlImage: z.string().optional(),
+    })
+});
+
 export type episodeSchema = z.infer<typeof episodeSchema>;
 
 const episodeCollection = defineCollection({ schema: episodeSchema });
 
 export const collections = {
     'episode': episodeCollection,
+    'posts': postsCollection,
 }
