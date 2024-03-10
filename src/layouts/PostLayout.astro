@@ -1,0 +1,25 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import HeaderCard from "../components/headerCard/HeaderCard.astro";
+const { frontmatter } = Astro.props;
+import astropodConfig from "../../.astropod/astropod.config.json";
+
+const { title, explicit, pubDate, cover, description, hideSmallCover = false } = Astro.props;
+dayjs.extend(localizedFormat);
+const displayDate = dayjs(pubDate).format("ll");
+---
+<BaseLayout title={`${title} - ${astropodConfig.name}`} description={description} image={cover}>
+    <HeaderCard hideSmallCover={hideSmallCover} title={title} subtitle={astropodConfig.name} cover={cover} explicit={explicit} />
+  
+    <main class="md:flex md:justify-center">
+      <article class="card prose min-w-full prose-img:mx-auto bg-base-100 shadow-md p-8 mt-12">
+        <img src={frontmatter.cover} alt={frontmatter.title} />
+        <h1>{frontmatter.title}</h1>
+        <div><strong>Written by:</strong> {frontmatter.author} on {frontmatter.pubDate.toString().slice(0,10)}</div>
+        <p class="bg-sky-200 rounded-lg p-4">{frontmatter.description}</p>
+        <slot />
+      </article>
+    </main>
+  </BaseLayout>
