@@ -9,12 +9,12 @@ explicit: false
 episode: 6
 season: 2
 episodeType: full
-description: In today's episode, I am joined by Jason McDonald, Director of Community Development at the OWASP Foundation. Author of "Dead Simple Python” and the brain behind today’s topic. Quantified Tasks.
+description: In today’s episode I am joined by Ken Corey Co-Author of the book behind todays question titled "Bad Bosses Ruin Lives, The building blocks for being a great boss”
 ---
 
 # Inside this episode
 
-In today's episode, I am joined by Jason McDonald, Director of Community Development at the OWASP Foundation. Author of "Dead Simple Python” and the brain behind today’s topic. Quantified Tasks.
+In today’s episode I am joined by Ken Corey Co-Author of the book behind todays question titled "Bad Bosses Ruin Lives, The building blocks for being a great boss”
 
 **Host**: Aaron Rackley 
 
